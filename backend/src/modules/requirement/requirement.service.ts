@@ -43,7 +43,7 @@ export class RequirementService {
       qb.andWhere('requirement.budgetMax >= :minBudget', { minBudget: filters.minBudget });
     }
     if (filters.maxBudget !== undefined) {
-      qb.andWhere('requirement.budgetMax <= :maxBudget', { maxBudget: filters.maxBudget });
+      qb.andWhere('requirement.budgetMin <= :maxBudget', { maxBudget: filters.maxBudget });
     }
 
     return qb.getMany();

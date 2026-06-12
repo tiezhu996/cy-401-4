@@ -59,7 +59,7 @@ export class BidService {
     await this.bidRepository.save(bid);
 
     await this.bidRepository.update(
-      { requirementId: bid.id, status: BidStatus.Pending },
+      { requirementId: bid.requirementId, status: BidStatus.Pending },
       { status: BidStatus.Rejected }
     );
     await this.requirementRepository.update(bid.requirementId, {
